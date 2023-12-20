@@ -12,8 +12,12 @@ def test_update_existing_review():
 def test_update_non_existing_review():
     reviews = RestaurantReviews()
     with pytest.raises(ValueError):
+        reviews.update_review("Caf Mocha", "Great coffee and pastries", 4)
+
+def test_update_invalid_rating():
+    reviews = RestaurantReviews()
+    reviews.add_review("Cafe Mocha", "Great coffee and pastries", 4)
+    with pytest.raises(ValueError):
         reviews.update_review("Cafe Mocha", "Great coffee and pastries", 6)
     with pytest.raises(ValueError):
         reviews.update_review("Cafe Mocha", "Great coffee and pastries", 0)
-    with pytest.raises(ValueError):
-        reviews.update_review("Caf Mocha", "Great coffee and pastries", 4)
