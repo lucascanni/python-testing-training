@@ -1,25 +1,5 @@
 import pytest
-
-#Functions to test
-
-def total_with_tip(bill, percentage):
-    if bill < 0:
-        raise ValueError("Bill cannot be negative")
-    if percentage > 100:
-        raise ValueError("Percentage cannot be greater than 100%")
-    if percentage < 0:
-        raise ValueError("Percentage cannot be negative")
-    
-    tip = bill * percentage / 100
-    if tip > 500:
-        tip = 500
-    
-    total = bill + tip
-    if total < 5:
-        total = 5
-    return round(total, 2)
-
-
+from implementations.tip import total_with_tip
 
 # TDD - Test Driven Development
 # 1. Pour un repas à *100€* (bill), et un tips de *20%*(percentage) : Je laisse sur la table *120€*(output/return).
