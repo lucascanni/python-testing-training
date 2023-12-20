@@ -20,3 +20,9 @@ class RestaurantReviews:
             raise ValueError("No such restaurant exists.")
         self.reviews[restaurant] = {"review_text": new_review_text, "rating": new_rating}
         return "Review updated for {}.".format(restaurant)
+    
+    def delete_review(self, restaurant):
+        if restaurant not in self.reviews:
+            raise ValueError("No such restaurant exists.")
+        del self.reviews[restaurant]
+        return "Review deleted for {}.".format(restaurant)
