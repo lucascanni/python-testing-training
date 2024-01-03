@@ -3,6 +3,8 @@ class Menu:
         self.reviews = {}
 
     def add_menu_item(self, restaurant_name, item_name, desription, price):
+        if price <= 0:
+            raise ValueError("Price must be positive.")
         if restaurant_name not in self.reviews:
             self.reviews[restaurant_name] = {}
         self.reviews[restaurant_name][item_name] = {"desription": desription, "price": price}

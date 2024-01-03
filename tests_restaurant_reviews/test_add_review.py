@@ -1,7 +1,7 @@
 import pytest
 
 from implementations.restaurant_reviews import RestaurantReviews
-from fixture.restaurant_reviews_fixture import restaurant_reviews_with_two_reviews
+from fixture.conftest import restaurant_reviews_with_two_reviews
 
 def test_add_review():
     reviews = RestaurantReviews()
