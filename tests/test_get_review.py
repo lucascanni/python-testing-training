@@ -9,11 +9,11 @@ def test_get_existing_review():
     result = reviews.get_review("Cafe Mocha")
     assert result == {"review_text": "Great coffee and pastries", "rating": 4}
 
-def test_get_review_with_fixture():
-    reviews = RestaurantReviews()
-    reviews.add_review(restaurant_reviews_with_two_reviews())
-    result = reviews.get_review("Cafe Mocha")
-    assert result == {"review_text": "Great coffee and pastries", "rating": 4}
+def test_get_review_with_fixture(restaurant_reviews_with_two_reviews):
+    assert restaurant_reviews_with_two_reviews.get_review("Cafe Mocha") == {"review_text": "Great coffee and pastries", "rating": 4}
+    assert restaurant_reviews_with_two_reviews.get_review("Sushi Express") == {"review_text": "Fresh sushi", "rating": 4}
+    assert restaurant_reviews_with_two_reviews.get_review("Cafe Mocha") != {"review_text": "Fresh sushi", "rating": 4}
+    assert restaurant_reviews_with_two_reviews.get_review("Sushi Express") != {"review_text": "Great coffee and pastries", "rating": 4}
 
 def test_get_non_existing_review():
     reviews = RestaurantReviews()
