@@ -20,6 +20,8 @@ class Menu:
             raise ValueError("No such restaurant exists.")
         if item_name not in self.reviews[restaurant_name]:
             raise ValueError("No such item exists.")
+        if new_price <= 0:
+            raise ValueError("Price must be positive.")
         self.reviews[restaurant_name][item_name] = {"desription": new_desription, "price": new_price}
         return "Menu item updated for {}.".format(restaurant_name)
     
